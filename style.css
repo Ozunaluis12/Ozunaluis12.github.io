@@ -40,6 +40,13 @@ a:hover {
   opacity: 0.8;
 }
 
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 .button {
   display: inline-block;
   padding: 12px 28px;
@@ -102,6 +109,10 @@ a:hover {
 @media (hover: none) {
   .cursor-glow {
     display: none;
+  }
+
+  .tech i {
+    animation: none;
   }
 }
 

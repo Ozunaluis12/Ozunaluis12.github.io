@@ -5,8 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luis Ozuna | Portafolio profesional</title>
   <meta name="description" content="Portafolio profesional de Luis Ozuna, Desarrollador de Software. Proyectos en ASP.NET MVC, Flutter, Python, etc y bases de datos." />
+  <link rel="canonical" href="https://ozunaluis12.github.io/">
+
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Luis Ozuna | Portafolio profesional">
+  <meta property="og:description" content="Desarrollador de Software especializado en ASP.NET Core, Flutter y bases de datos PostgreSQL/MySQL.">
+  <meta property="og:image" content="https://ozunaluis12.github.io/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://ozunaluis12.github.io/">
+  <meta property="og:locale" content="es_CO">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Luis Ozuna | Portafolio profesional">
+  <meta name="twitter:description" content="Desarrollador de Software especializado en ASP.NET Core, Flutter y bases de datos PostgreSQL/MySQL.">
+  <meta name="twitter:image" content="https://ozunaluis12.github.io/og-image.jpg">
+
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" referrerpolicy="no-referrer" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Luis Ozuna",
+    "jobTitle": "Desarrollador de Software",
+    "url": "https://ozunaluis12.github.io/",
+    "image": "https://ozunaluis12.github.io/og-image.jpg",
+    "email": "mailto:Ozunaluis872@gmail.com",
+    "sameAs": [
+      "https://github.com/Ozunaluis12"
+    ],
+    "knowsAbout": ["ASP.NET Core", "Flutter", "C#", "PostgreSQL", "MySQL", "PHP", "JavaScript"],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "SENA"
+    }
+  }
+  </script>
 </head>
 <body>
 
@@ -33,7 +71,10 @@
   </nav>
   <div class="hero-content">
     <div id="inicio" class="profile tilt-el">
-      <img src="perfil.jpeg" alt="Foto de perfil de Luis Ozuna">
+      <picture>
+        <source srcset="perfil.webp" type="image/webp">
+        <img src="perfil.jpeg" alt="Foto de perfil de Luis Ozuna" width="354" height="472" fetchpriority="high">
+      </picture>
     </div>
     <div class="info">
       <p class="eyebrow">Desarrollador de Software | Tecnólogo SENA</p>
@@ -335,7 +376,6 @@
   <p>Portafolio profesional de Luis Ozuna | Desarrollador de Software</p>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" referrerpolicy="no-referrer"></script>
 <script>
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('#nav-links');
@@ -466,7 +506,7 @@
   /* ---------- Fondo 3D animado en el hero (Three.js) ---------- */
   function initHero3D() {
     const canvas = document.getElementById('hero-canvas');
-    if (!canvas || typeof THREE === 'undefined' || prefersReducedMotion) return;
+    if (!canvas || typeof THREE === 'undefined' || prefersReducedMotion || !canHover) return;
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -539,7 +579,13 @@
     animate();
   }
 
-  initHero3D();
+  if (canHover && !prefersReducedMotion) {
+    const threeScript = document.createElement('script');
+    threeScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+    threeScript.referrerPolicy = 'no-referrer';
+    threeScript.onload = initHero3D;
+    document.body.appendChild(threeScript);
+  }
 </script>
 </body>
 </html>
