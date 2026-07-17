@@ -10,8 +10,11 @@
 </head>
 <body>
 
+<div class="cursor-glow" aria-hidden="true"></div>
+
 <!-- HERO -->
 <header class="hero">
+  <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
   <nav class="top-nav" aria-label="Navegación principal">
     <div class="brand">Luis Ozuna</div>
     <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">
@@ -29,7 +32,7 @@
     </ul>
   </nav>
   <div class="hero-content">
-    <div id="inicio" class="profile">
+    <div id="inicio" class="profile tilt-el">
       <img src="perfil.jpeg" alt="Foto de perfil de Luis Ozuna">
     </div>
     <div class="info">
@@ -51,8 +54,8 @@
 
 <!-- SOBRE MI -->
 <section id="sobre-mi" class="section about">
-  <h2 class="title">Sobre mí</h2>
-  <div class="card card-grid">
+  <h2 class="title reveal">Sobre mí</h2>
+  <div class="card card-grid reveal">
     <div>
       <p>Soy Tecnólogo en Análisis y Desarrollo de Software egresado del SENA. Me apasiona crear soluciones tecnológicas que resuelven problemas reales y aportan valor al usuario.</p>
       <p>Tengo experiencia en desarrollo de aplicaciones web, móviles y administración de bases de datos. He trabajado con ASP.NET MVC, C#, Flutter, Dart, JavaScript, Python, Java y PHP.</p>
@@ -67,15 +70,15 @@
 <!-- ESTADISTICAS -->
 <section>
   <div class="stats">
-    <div class="stat">
+    <div class="stat reveal">
       <h3>5+</h3>
       <p>Proyectos</p>
     </div>
-    <div class="stat">
+    <div class="stat reveal">
       <h3>18+</h3>
       <p>Meses aprendiendo</p>
     </div>
-    <div class="stat">
+    <div class="stat reveal">
       <h3>8+</h3>
       <p>Tecnologías</p>
     </div>
@@ -84,69 +87,69 @@
 
 <!-- TECNOLOGIAS -->
 <section id="tecnologias" class="section technologies">
-  <h2 class="title">Tecnologías</h2>
+  <h2 class="title reveal">Tecnologías</h2>
   <div class="tech-grid-horizontal">
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fab fa-cuttlefish"></i>
       <p>C#</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fab fa-java"></i>
       <p>Java</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fab fa-js"></i>
       <p>JavaScript</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fab fa-python"></i>
       <p>Python</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fab fa-php"></i>
       <p>PHP</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fas fa-code-branch"></i>
       <p>Dart</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fab fa-html5"></i>
       <p>HTML5</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fab fa-css3"></i>
       <p>CSS3</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fab fa-react"></i>
       <p>ASP.NET</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fab fa-flutter"></i>
       <p>Flutter</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fas fa-database"></i>
       <p>PostgreSQL</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fas fa-database"></i>
       <p>MySQL</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fab fa-git"></i>
       <p>Git</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fab fa-github"></i>
       <p>GitHub</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fas fa-cube"></i>
       <p>Entity Framework</p>
     </div>
-    <div class="tech">
+    <div class="tech tilt-el reveal">
       <i class="fab fa-cuttlefish"></i>
       <p>C++</p>
     </div>
@@ -155,47 +158,74 @@
 
 <!-- PROYECTOS -->
 <section id="proyectos" class="section projects">
-  <h2 class="title">Proyectos destacados</h2>
+  <h2 class="title reveal">Proyectos destacados</h2>
   <div class="project-grid">
-    <article class="project-card">
+    <article class="project-card tilt-el reveal">
       <div class="project-icon">
         <i class="fas fa-truck-moving"></i>
       </div>
       <div class="project-content">
         <h3>LOGINOVA</h3>
-        <p class="project-description">Sistema integral de gestión logística con funcionalidades de seguimiento de recogidas, gestión de rutas y administración de clientes y conductores.</p>
+        <p class="project-description">Plataforma integral de gestión logística estructurada como monorepo: app móvil Flutter, API en ASP.NET Core 10 y base de datos PostgreSQL, con autenticación JWT.</p>
         <div class="project-features">
-          <span class="feature">Gestión de clientes</span>
-          <span class="feature">Rutas optimizadas</span>
-          <span class="feature">Reportes en tiempo real</span>
+          <span class="feature">App móvil + API REST</span>
+          <span class="feature">Autenticación JWT</span>
+          <span class="feature">Scripts de despliegue</span>
         </div>
-        <p class="project-tech">ASP.NET MVC · C# · PostgreSQL · JavaScript</p>
-        <a class="project-link" href="https://github.com/ozunaluis872-png/new-proyect" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-github"></i> Ver en GitHub
-        </a>
+        <p class="project-tech">ASP.NET Core 10 · Flutter/Dart · PostgreSQL · Entity Framework Core</p>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/Ozunaluis12/new-proyect" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> Ver en GitHub
+          </a>
+        </div>
       </div>
     </article>
 
-    <article class="project-card">
+    <article class="project-card tilt-el reveal">
       <div class="project-icon">
-        <i class="fas fa-graduation-cap"></i>
+        <i class="fas fa-certificate"></i>
       </div>
       <div class="project-content">
-        <h3>Colegio Panamericano</h3>
-        <p class="project-description">Plataforma educativa completa con sistema de evaluaciones, generación automática de certificados e integración de aplicación móvil institucional.</p>
+        <h3>Exámenes y Certificados</h3>
+        <h4>Colegio Panamericano</h4>
+        <p class="project-description">Sistema web para gestión de exámenes y capacitaciones, con generación y validación digital de certificados y notificaciones automáticas por correo.</p>
         <div class="project-features">
-          <span class="feature">Sistema de evaluaciones</span>
-          <span class="feature">Certificados automáticos</span>
-          <span class="feature">App móvil integrada</span>
+          <span class="feature">Generación de certificados</span>
+          <span class="feature">Validación digital</span>
+          <span class="feature">Notificaciones por email</span>
         </div>
-        <p class="project-tech">ASP.NET MVC · C# · MySQL · Flutter</p>
-        <a class="project-link" href="https://github.com/ozunaluis872-png/examen_certificados" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-github"></i> Ver en GitHub
-        </a>
+        <p class="project-tech">PHP · MySQL/MariaDB · PHPMailer · Composer</p>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/Ozunaluis12/examen_certificados" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> Ver en GitHub
+          </a>
+        </div>
       </div>
     </article>
 
-    <article class="project-card">
+    <article class="project-card tilt-el reveal">
+      <div class="project-icon">
+        <i class="fas fa-school"></i>
+      </div>
+      <div class="project-content">
+        <h3>App Panamericano</h3>
+        <h4>Colegio Panamericano</h4>
+        <p class="project-description">Aplicación móvil que centraliza el acceso a las plataformas y recursos digitales del colegio en un solo punto de entrada para estudiantes, padres y personal.</p>
+        <div class="project-features">
+          <span class="feature">Acceso centralizado</span>
+          <span class="feature">Interfaz intuitiva</span>
+          <span class="feature">Multiplataforma</span>
+        </div>
+        <p class="project-tech">Flutter · Dart</p>
+        <div class="project-links">
+          <a class="project-link" href="https://github.com/Ozunaluis12/App_Panamericano" target="_blank" rel="noopener noreferrer">
+            <i class="fab fa-github"></i> Ver en GitHub
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card tilt-el reveal">
       <div class="project-icon">
         <i class="fas fa-biking"></i>
       </div>
@@ -209,9 +239,6 @@
           <span class="feature">Comunidad integrada</span>
         </div>
         <p class="project-tech">Flutter · Dart · MySQL · UI móvil</p>
-        <a class="project-link" href="https://github.com/ozunaluis872-png" target="_blank" rel="noopener noreferrer">
-          <i class="fab fa-github"></i> Ver en GitHub
-        </a>
       </div>
     </article>
   </div>
@@ -219,8 +246,8 @@
 
 <!-- EXPERIENCIA -->
 <section id="experiencia" class="section experience">
-  <h2 class="title">Experiencia y formación</h2>
-  <div class="card card-grid">
+  <h2 class="title reveal">Experiencia y formación</h2>
+  <div class="card card-grid reveal">
     <div class="experience-item">
       <h3>Proyectos SENA</h3>
       <p>Desarrollo de soluciones web y móviles con enfoque en calidad, pruebas funcionales y entrega de software confiable.</p>
@@ -230,32 +257,70 @@
       <p>Técnico en Análisis y Desarrollo de Software con competencias en análisis de requerimientos, modelado de datos y desarrollo de aplicaciones.</p>
     </div>
   </div>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date"><time datetime="2026-01-13T18:45:04Z">13 ene 2026 · 1:45 p. m.</time></span>
+        <h3>App Panamericano</h3>
+        <p>Primera versión de la app móvil Flutter para centralizar el acceso a las plataformas del Colegio Panamericano.</p>
+        <p class="timeline-tech">Flutter · Dart</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date"><time datetime="2026-03-09T15:12:35Z">9 mar 2026 · 10:12 a. m.</time></span>
+        <h3>Exámenes y Certificados</h3>
+        <p>Sistema web para gestión de exámenes, capacitaciones y emisión/validación digital de certificados.</p>
+        <p class="timeline-tech">PHP · MySQL · PHPMailer</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date"><time datetime="2026-06-13T15:46:49Z">13 jun 2026 · 10:46 a. m.</time></span>
+        <h3>Portafolio profesional</h3>
+        <p>Diseño y publicación de este sitio en GitHub Pages para mostrar proyectos, tecnologías y experiencia.</p>
+        <p class="timeline-tech">HTML5 · CSS3 · JavaScript</p>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">
+          <time datetime="2026-06-20T16:24:09Z">20 jun 2026 · 11:24 a. m.</time>
+          <span class="timeline-badge">En desarrollo</span>
+        </span>
+        <h3>LOGINOVA</h3>
+        <p>Plataforma logística en monorepo: app Flutter, API en ASP.NET Core 10, PostgreSQL y autenticación JWT. Último commit: <time datetime="2026-07-16T23:35:15Z">16 jul 2026 · 6:35 p. m.</time></p>
+        <p class="timeline-tech">Flutter · ASP.NET Core 10 · PostgreSQL · Entity Framework Core</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <!-- CERTIFICACIONES -->
 <section id="certificaciones" class="section certifications">
-  <h2 class="title">Certificaciones</h2>
-  <div class="card">
+  <h2 class="title reveal">Certificaciones</h2>
+  <div class="card reveal">
     <ul>
       <li>Tecnólogo ADSO - SENA</li>
-      <!--<li>Curso SQL</li>
-      <li>Curso Flutter</li>
-      <li>Curso ASP.NET MVC</li>
-      <li>Curso PostgreSQL</li>-->
     </ul>
   </div>
 </section>
 
 <!-- CONTACTO -->
 <section id="contacto" class="section contact">
-  <h2 class="title">Contacto</h2>
+  <h2 class="title reveal">Contacto</h2>
   <div class="contact-grid">
-    <div class="contact-card">
+    <div class="contact-card reveal">
       <h3>¿Quieres trabajar conmigo?</h3>
       <p>Estoy disponible para proyectos de desarrollo full stack, aplicaciones móviles y consultoría de software.</p>
       <a class="button primary" href="mailto:Ozunaluis872@gmail.com">Enviar email</a>
     </div>
-    <div class="contact-card">
+    <div class="contact-card reveal">
       <h3>WhatsApp</h3>
       <p>Conecta directamente para hablar sobre tus ideas de software y solicitudes de desarrollo.</p>
       <a class="button secondary" href="https://wa.me/573004177979?text=Hola%20Luis,%20vi%20tu%20portafolio%20y%20estoy%20interesado%20en%20desarrollar%20un%20proyecto%20de%20software.%20Me%20gustar%C3%ADa%20conocer%20m%C3%A1s%20sobre%20los%20servicios%20que%20ofreces,%20tu%20experiencia%20y%20c%C3%B3mo%20podr%C3%ADamos%20colaborar%20para%20llevar%20esta%20idea%20a%20cabo.%20%C2%BFTienes%20disponibilidad%20para%20una%20llamada%20o%20reuni%C3%B3n?
@@ -270,6 +335,7 @@
   <p>Portafolio profesional de Luis Ozuna | Desarrollador de Software</p>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" referrerpolicy="no-referrer"></script>
 <script>
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('#nav-links');
@@ -303,6 +369,177 @@
       closeMenu();
     }
   });
+
+  /* ---------- Preferencias de movimiento ---------- */
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+  /* ---------- Glow que sigue el cursor ---------- */
+  const cursorGlow = document.querySelector('.cursor-glow');
+  if (cursorGlow) {
+    if (canHover && !prefersReducedMotion) {
+      window.addEventListener('mousemove', (e) => {
+        cursorGlow.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+      }, { passive: true });
+    } else {
+      cursorGlow.style.display = 'none';
+    }
+  }
+
+  /* ---------- Revelado al hacer scroll ---------- */
+  const revealEls = document.querySelectorAll('.reveal');
+  if (prefersReducedMotion) {
+    revealEls.forEach((el) => el.classList.add('visible'));
+  } else if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach((el) => revealObserver.observe(el));
+  } else {
+    revealEls.forEach((el) => el.classList.add('visible'));
+  }
+
+  /* ---------- Tilt 3D en tarjetas, íconos y foto de perfil ---------- */
+  if (canHover && !prefersReducedMotion) {
+    document.querySelectorAll('.tilt-el').forEach((el) => {
+      const strength = el.classList.contains('profile') ? 8 : el.classList.contains('project-card') ? 10 : 14;
+      const lift = el.classList.contains('project-card') ? -10 : el.classList.contains('tech') ? -6 : 0;
+
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width - 0.5;
+        const py = (e.clientY - rect.top) / rect.height - 0.5;
+        const rotateY = px * strength;
+        const rotateX = -py * strength;
+        el.style.transform = `perspective(900px) translateY(${lift}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      });
+
+      el.addEventListener('mouseleave', () => {
+        el.style.transform = '';
+      });
+    });
+  }
+
+  /* ---------- Contador animado de estadísticas ---------- */
+  const statEls = document.querySelectorAll('.stat h3');
+  if (statEls.length) {
+    const animateCount = (el) => {
+      const text = el.textContent.trim();
+      const target = parseInt(text, 10) || 0;
+      const suffix = text.replace(/[0-9]/g, '');
+      if (prefersReducedMotion) {
+        el.textContent = target + suffix;
+        return;
+      }
+      const duration = 1200;
+      const start = performance.now();
+      const step = (now) => {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.floor(eased * target) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+        else el.textContent = target + suffix;
+      };
+      requestAnimationFrame(step);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const statObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animateCount(entry.target);
+            statObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.6 });
+      statEls.forEach((el) => statObserver.observe(el));
+    } else {
+      statEls.forEach(animateCount);
+    }
+  }
+
+  /* ---------- Fondo 3D animado en el hero (Three.js) ---------- */
+  function initHero3D() {
+    const canvas = document.getElementById('hero-canvas');
+    if (!canvas || typeof THREE === 'undefined' || prefersReducedMotion) return;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
+    camera.position.z = 6;
+
+    const icoGeometry = new THREE.IcosahedronGeometry(2, 1);
+    const icoMaterial = new THREE.MeshBasicMaterial({ color: 0x38bdf8, wireframe: true, transparent: true, opacity: 0.45 });
+    const icosahedron = new THREE.Mesh(icoGeometry, icoMaterial);
+    scene.add(icosahedron);
+
+    const icoGeometrySmall = new THREE.OctahedronGeometry(1, 0);
+    const icoMaterialSmall = new THREE.MeshBasicMaterial({ color: 0x7dd3fc, wireframe: true, transparent: true, opacity: 0.3 });
+    const octahedron = new THREE.Mesh(icoGeometrySmall, icoMaterialSmall);
+    octahedron.position.set(3, -1.5, -2);
+    scene.add(octahedron);
+
+    const particleCount = 180;
+    const positions = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount * 3; i++) {
+      positions[i] = (Math.random() - 0.5) * 12;
+    }
+    const particlesGeometry = new THREE.BufferGeometry();
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    const particlesMaterial = new THREE.PointsMaterial({ color: 0x38bdf8, size: 0.025, transparent: true, opacity: 0.55 });
+    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particles);
+
+    let mouseX = 0;
+    let mouseY = 0;
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX / window.innerWidth - 0.5;
+      mouseY = e.clientY / window.innerHeight - 0.5;
+    }, { passive: true });
+
+    const resize = () => {
+      const width = canvas.clientWidth;
+      const height = canvas.clientHeight;
+      if (!width || !height) return;
+      renderer.setSize(width, height, false);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    };
+
+    let visible = true;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver((entries) => {
+        visible = entries[0].isIntersecting;
+      }).observe(canvas);
+    }
+
+    const animate = () => {
+      requestAnimationFrame(animate);
+      if (!visible) return;
+      icosahedron.rotation.x += 0.0018;
+      icosahedron.rotation.y += 0.0026;
+      octahedron.rotation.x -= 0.0014;
+      octahedron.rotation.y += 0.002;
+      particles.rotation.y += 0.0005;
+      camera.position.x += (mouseX * 1.2 - camera.position.x) * 0.03;
+      camera.position.y += (-mouseY * 1.2 - camera.position.y) * 0.03;
+      camera.lookAt(scene.position);
+      renderer.render(scene, camera);
+    };
+
+    window.addEventListener('resize', resize, { passive: true });
+    resize();
+    animate();
+  }
+
+  initHero3D();
 </script>
 </body>
 </html>
