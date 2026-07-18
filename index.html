@@ -51,7 +51,7 @@
 <div class="cursor-glow" aria-hidden="true"></div>
 
 <!-- HERO -->
-<header class="hero">
+<header id="inicio" class="hero">
   <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
   <nav class="top-nav" aria-label="Navegación principal">
     <div class="brand">Luis Ozuna</div>
@@ -70,7 +70,7 @@
     </ul>
   </nav>
   <div class="hero-content">
-    <div id="inicio" class="profile tilt-el">
+    <div class="profile tilt-el">
       <picture>
         <source srcset="perfil.webp" type="image/webp">
         <img src="perfil.jpeg" alt="Foto de perfil de Luis Ozuna" width="354" height="472" fetchpriority="high">
@@ -528,10 +528,12 @@
   /* ---------- Fondo 3D animado en el hero (Three.js) ---------- */
   function initHero3D() {
     const canvas = document.getElementById('hero-canvas');
-    if (!canvas || typeof THREE === 'undefined' || prefersReducedMotion || !canHover) return;
+    if (!canvas || typeof THREE === 'undefined' || prefersReducedMotion) return;
 
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const lite = !canHover; // versión simplificada para dispositivos táctiles/móviles
+
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: !lite });
+    renderer.setPixelRatio(lite ? 1 : Math.min(window.devicePixelRatio, 2));
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 100);
@@ -542,29 +544,36 @@
     const icosahedron = new THREE.Mesh(icoGeometry, icoMaterial);
     scene.add(icosahedron);
 
-    const icoGeometrySmall = new THREE.OctahedronGeometry(1, 0);
-    const icoMaterialSmall = new THREE.MeshBasicMaterial({ color: 0x7dd3fc, wireframe: true, transparent: true, opacity: 0.3 });
-    const octahedron = new THREE.Mesh(icoGeometrySmall, icoMaterialSmall);
-    octahedron.position.set(3, -1.5, -2);
-    scene.add(octahedron);
+    let octahedron = null;
+    let particles = null;
 
-    const particleCount = 180;
-    const positions = new Float32Array(particleCount * 3);
-    for (let i = 0; i < particleCount * 3; i++) {
-      positions[i] = (Math.random() - 0.5) * 12;
+    if (!lite) {
+      const icoGeometrySmall = new THREE.OctahedronGeometry(1, 0);
+      const icoMaterialSmall = new THREE.MeshBasicMaterial({ color: 0x7dd3fc, wireframe: true, transparent: true, opacity: 0.3 });
+      octahedron = new THREE.Mesh(icoGeometrySmall, icoMaterialSmall);
+      octahedron.position.set(3, -1.5, -2);
+      scene.add(octahedron);
+
+      const particleCount = 180;
+      const positions = new Float32Array(particleCount * 3);
+      for (let i = 0; i < particleCount * 3; i++) {
+        positions[i] = (Math.random() - 0.5) * 12;
+      }
+      const particlesGeometry = new THREE.BufferGeometry();
+      particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const particlesMaterial = new THREE.PointsMaterial({ color: 0x38bdf8, size: 0.025, transparent: true, opacity: 0.55 });
+      particles = new THREE.Points(particlesGeometry, particlesMaterial);
+      scene.add(particles);
     }
-    const particlesGeometry = new THREE.BufferGeometry();
-    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const particlesMaterial = new THREE.PointsMaterial({ color: 0x38bdf8, size: 0.025, transparent: true, opacity: 0.55 });
-    const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-    scene.add(particles);
 
     let mouseX = 0;
     let mouseY = 0;
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX / window.innerWidth - 0.5;
-      mouseY = e.clientY / window.innerHeight - 0.5;
-    }, { passive: true });
+    if (!lite) {
+      window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX / window.innerWidth - 0.5;
+        mouseY = e.clientY / window.innerHeight - 0.5;
+      }, { passive: true });
+    }
 
     const resize = () => {
       const width = canvas.clientWidth;
@@ -582,26 +591,36 @@
       }).observe(canvas);
     }
 
-    const animate = () => {
+    const frameInterval = lite ? 1000 / 30 : 0;
+    let lastFrameTime = 0;
+
+    const animate = (now) => {
       requestAnimationFrame(animate);
       if (!visible) return;
+      if (lite && now - lastFrameTime < frameInterval) return;
+      lastFrameTime = now;
+
       icosahedron.rotation.x += 0.0018;
       icosahedron.rotation.y += 0.0026;
-      octahedron.rotation.x -= 0.0014;
-      octahedron.rotation.y += 0.002;
-      particles.rotation.y += 0.0005;
-      camera.position.x += (mouseX * 1.2 - camera.position.x) * 0.03;
-      camera.position.y += (-mouseY * 1.2 - camera.position.y) * 0.03;
-      camera.lookAt(scene.position);
+      if (octahedron) {
+        octahedron.rotation.x -= 0.0014;
+        octahedron.rotation.y += 0.002;
+      }
+      if (particles) particles.rotation.y += 0.0005;
+      if (!lite) {
+        camera.position.x += (mouseX * 1.2 - camera.position.x) * 0.03;
+        camera.position.y += (-mouseY * 1.2 - camera.position.y) * 0.03;
+        camera.lookAt(scene.position);
+      }
       renderer.render(scene, camera);
     };
 
     window.addEventListener('resize', resize, { passive: true });
     resize();
-    animate();
+    requestAnimationFrame(animate);
   }
 
-  if (canHover && !prefersReducedMotion) {
+  if (!prefersReducedMotion) {
     const threeScript = document.createElement('script');
     threeScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
     threeScript.referrerPolicy = 'no-referrer';
