@@ -462,6 +462,9 @@
 
   /* ---------- Revelado al hacer scroll ---------- */
   const revealEls = document.querySelectorAll('.reveal');
+  document.querySelectorAll('.tech-grid-horizontal .tech').forEach((el, index) => {
+    el.style.setProperty('--tech-delay', `${index * 38}ms`);
+  });
   if (prefersReducedMotion) {
     revealEls.forEach((el) => el.classList.add('visible'));
   } else if ('IntersectionObserver' in window) {
@@ -481,7 +484,7 @@
   /* ---------- Tilt 3D en tarjetas, íconos y foto de perfil ---------- */
   if (canHover && !prefersReducedMotion) {
     document.querySelectorAll('.tilt-el').forEach((el) => {
-      const strength = el.classList.contains('profile') ? 8 : el.classList.contains('project-card') ? 10 : 14;
+      const strength = el.classList.contains('profile') ? 8 : el.classList.contains('project-card') ? 10 : el.classList.contains('tech') ? 7 : 14;
       const lift = el.classList.contains('project-card') ? -10 : el.classList.contains('tech') ? -6 : 0;
 
       el.addEventListener('mousemove', (e) => {
