@@ -481,6 +481,20 @@
     revealEls.forEach((el) => el.classList.add('visible'));
   }
 
+  /* ---------- Feedback táctil en tecnologías ---------- */
+  if (!canHover && !prefersReducedMotion) {
+    document.querySelectorAll('.tech-grid-horizontal .tech').forEach((el) => {
+      let tapTimeout;
+      el.addEventListener('click', () => {
+        el.classList.remove('is-tapped');
+        void el.offsetWidth;
+        el.classList.add('is-tapped');
+        window.clearTimeout(tapTimeout);
+        tapTimeout = window.setTimeout(() => el.classList.remove('is-tapped'), 700);
+      });
+    });
+  }
+
   /* ---------- Tilt 3D en tarjetas, íconos y foto de perfil ---------- */
   if (canHover && !prefersReducedMotion) {
     document.querySelectorAll('.tilt-el').forEach((el) => {
